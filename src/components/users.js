@@ -17,6 +17,11 @@ class Users extends Component {
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
+  /**
+   * Method to handle search for
+   * the usernames
+   * 
+   */
   handleSearchChange(value) {
     this.props.actionFilterUser(value);
 }
@@ -51,7 +56,7 @@ class Users extends Component {
                     {u.login}
                     <img
                       src={u.avatar_url}
-                      alt="Girl in a jacket"
+                      alt="Boy in a jacket"
                       width="200"
                       height="200"
                       className="center"
@@ -81,7 +86,11 @@ class Users extends Component {
   }
 }
 
-
+/**
+ * function for the next arrow
+ * in the slider
+ * 
+ */
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -92,7 +101,11 @@ function SampleNextArrow(props) {
     />
   );
 }
-
+/**
+ * function for the prev arrow
+ * in the slider
+ * 
+ */
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -103,6 +116,9 @@ function SamplePrevArrow(props) {
     />
   );
 }
+
+
+
 const mapStateToProps = (state) => ({ followers: state.followers });
 
 const mapDispatchToProps = (dispatch) => {
