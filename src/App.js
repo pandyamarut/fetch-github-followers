@@ -1,11 +1,24 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+// import Search from './components/search'
+import {connect} from 'react-redux'
+import React, { Component } from 'react';
 
-function App() {
+class App extends Component {
+  componentDidMount = () => {
+    const user = {
+      name: "Leizl"
+    }
+    this.props.setUser(user)
+  }
+  render(){
+    console.log(this.props.currentUser)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <div align="top">
+        <Search></Search>
+      </div>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -16,10 +29,31 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
+        <div>
+          <h1>
+            Redux testing part! Redux connected
+          </h1>
+        </div>
       </header>
     </div>
   );
+      }
 }
 
-export default App;
+function mapStateToProps(state){
+  return{
+    currentUser: state.currentUser
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+    setUser: (userObj) => {
+      dispatch({type: "SET_USER", payload: userObj})
+
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
