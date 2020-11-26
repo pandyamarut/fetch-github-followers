@@ -65,20 +65,23 @@ class Users extends Component {
         <Container maxWidth="md">
           <div className="searchUser__Container">
             <label>
-              GitHub username:
               <input
                 type="text"
                 value={this.state.searchName}
                 onChange={(e) => this.setState({searchName: e.target.value})}
               />
             </label>
-            <Button variant="contained" color="primary" onClick={() => this.handleSearchChange(this.state.searchName)}>Search</Button>
+            <div className="mr">
+            <Button variant="contained" color="primary" onClick={() => this.handleSearchChange(this.state.searchName)}>Search Follower</Button>
+            </div>
           </div>
         </Container>
       </div>
     );
   }
 }
+
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
